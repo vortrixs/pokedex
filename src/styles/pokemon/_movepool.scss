@@ -1,0 +1,13 @@
+@forward 'move';
+
+.movepool {
+    padding: 5px;
+
+    &__move {
+        margin-bottom: 5px;
+
+        &:last-of-type {
+            margin-bottom: 0;
+        }
+    }
+}

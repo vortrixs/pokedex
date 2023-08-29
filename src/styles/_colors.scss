@@ -1,0 +1,105 @@
+$soft-black: #181b1d;
+
+$type-colors: (
+    bug: #92BC2C,
+    dark: #595761,
+    dragon: #0C69C8,
+    electric: #F2D94E,
+    fire: #FBA54C,
+    fairy: #EE90E6,
+    fighting: #D3425F,
+    flying: #A1BBEC,
+    ghost: #5F6DBC,
+    grass: #5FBD58,
+    ground: #DA7C4D,
+    ice: #75D0C1,
+    normal: #A0A29F,
+    poison: #B763CF,
+    psychic: #FA8581,
+    rock: #C9BB8A,
+    steel: #5695A3,
+    water: #539DDF,
+);
+
+@mixin type-background-color-modifiers {
+    @each $type, $color in $type-colors {
+        &--#{$type} {
+            background-color: $color;
+        }
+    }
+}
+
+@mixin type-box-shadow-color-modifiers($x: 0, $y: 0, $blur-radius: 12.5px, $spread-radius: 0) {
+    @each $type, $color in $type-colors {
+        &--#{$type} {
+            box-shadow: $x $y $blur-radius $spread-radius $color;
+        }
+    }
+}
+
+
+@mixin type-border-color-modifiers($style: solid, $width: medium) {
+    @each $type, $color in $type-colors {
+        &--#{$type} {
+            border: $style $width $color;
+        }
+    }
+}
+
+@mixin type-border-gradient-modifiers($width: medium) {
+    @each $type, $color in $type-colors {
+        @each $type2, $color2 in $type-colors {
+            @if $type != $type2 {
+                &--#{$type}-#{$type2} {
+                    position:relative;
+
+                    &:before {
+                        content:"";
+                        position:absolute;
+                        top:0;
+                        left:0;
+                        right:0;
+                        bottom:0;
+			            border-radius: 20px;
+                        border: $width solid transparent;
+                        background:linear-gradient(135deg,$color,$color2) border-box;
+                        -webkit-mask:
+                            linear-gradient(#fff 0 0) padding-box, 
+                            linear-gradient(#fff 0 0);
+                        mask: linear-gradient(#fff 0 0) exclude;
+                        -webkit-mask-composite: xor;
+                        mask-composite: exclude;
+                        pointer-events: none;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@mixin pokemon-data-border-gradient($width: medium) {
+    @each $type, $color in $type-colors {
+        &--#{$type} {
+            position:relative;
+
+            &:after {
+                content:"";
+                position:absolute;
+                top:0;
+                left:0;
+                right:0;
+                bottom:0;
+                border-radius: 30px;
+                border: $width solid transparent;
+                background:linear-gradient($color 50px, transparent 125px) border-box;
+                -webkit-mask:
+                    linear-gradient(#fff 0 0) padding-box, 
+                    linear-gradient(#fff 0 0);
+                mask: linear-gradient(#fff 0 0) exclude;
+                -webkit-mask-composite: xor;
+                mask-composite: exclude;
+                pointer-events: none;
+            }
+        }
+    }
+}

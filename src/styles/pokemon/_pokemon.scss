@@ -1,0 +1,38 @@
+@forward 'movepool';
+
+@use '../colors';
+
+.pokemon {
+    &__header {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        padding: 0 20px;
+    }
+
+    &__data {
+        @include colors.pokemon-data-border-gradient(5px);   
+        padding: 25px;
+    }
+
+    &__types {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .types {
+        &__title {
+            width: 100%;
+            text-align: center;
+        }
+
+        &__type {
+            margin: 0 5px;
+        }
+    }
+
+    &__movepool {
+
+    }
+}
