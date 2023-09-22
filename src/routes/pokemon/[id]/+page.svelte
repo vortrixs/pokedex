@@ -10,7 +10,7 @@
 
 <header>
 	<h1>{ucfirst(data.pokemon.name)}</h1>
-	<span>#{data.pokemon.id.toString().padStart(3, '0')}</span>
+	<span>#{data.pokemon.id.toString(10).padStart(3, '0')}</span>
 </header>
 
 <ul>
