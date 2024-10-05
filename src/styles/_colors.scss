@@ -63,10 +63,10 @@ $type-colors: (
 			            border-radius: 20px;
                         border: $width solid transparent;
                         background:linear-gradient(135deg,$color,$color2) border-box;
+                        mask: linear-gradient(#fff 0 0) exclude;
                         -webkit-mask:
                             linear-gradient(#fff 0 0) padding-box, 
                             linear-gradient(#fff 0 0);
-                        mask: linear-gradient(#fff 0 0) exclude;
                         -webkit-mask-composite: xor;
                         mask-composite: exclude;
                         pointer-events: none;
@@ -92,10 +92,10 @@ $type-colors: (
                 border-radius: 30px;
                 border: $width solid transparent;
                 background:linear-gradient($color 50px, transparent 125px) border-box;
+                mask: linear-gradient(#fff 0 0) exclude;
                 -webkit-mask:
                     linear-gradient(#fff 0 0) padding-box, 
                     linear-gradient(#fff 0 0);
-                mask: linear-gradient(#fff 0 0) exclude;
                 -webkit-mask-composite: xor;
                 mask-composite: exclude;
                 pointer-events: none;
